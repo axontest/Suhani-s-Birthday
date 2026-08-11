@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { PaperScrap } from './PaperScrap';
 import { CrownSVG, SparkleSVG, SunflowerSVG, HeartSVG, RibbonBowSVG, WashiTape } from './CustomIcons';
-import { InteractiveCodeCake } from './InteractiveCodeCake';
+import { ExplosiveBombCake } from './ExplosiveBombCake';
 import { soundFx } from '../utils/audioSynth';
 import suhaniPfp from '../assets/suhani_pfp.png';
 
@@ -49,14 +49,14 @@ export const Stage0Verification = ({ onComplete }) => {
         {/* Funny & Relatable Description Line */}
         <p className="font-['Plus_Jakarta_Sans'] text-sm sm:text-base text-[#44403c] font-semibold mb-3 max-w-md mx-auto leading-relaxed">
           {boxState < 2 
-            ? "Warning: This cake contains 0 calories, 100% Mod immunity, and unlimited vibes from your STUDY WITH ME family! Tap the cake below to BLAST it!"
+            ? "WARNING: Birthday Bomb incoming! 💣 Light the fuse below to detonate the ultimate birthday party explosion!"
             : "BOOM! 💥 SURPRISE! You are officially crowned the Birthday Queen of STUDY WITH ME today! 👑"}
         </p>
 
-        {/* Interactive Pure Code Cake & Explosive Blast Container */}
-        <div className="my-3 flex flex-col items-center justify-center relative min-h-[240px]">
+        {/* Interactive Explosive Birthday Bomb Cake Container */}
+        <div className="my-3 flex flex-col items-center justify-center relative min-h-[250px]">
           {boxState < 2 ? (
-            <InteractiveCodeCake size={210} onBlast={handleBlast} />
+            <ExplosiveBombCake size={210} onBlast={handleBlast} />
           ) : (
             <div className="relative bg-[#fffbeb] border-2 border-[#fcd34d] p-5 rounded-2xl shadow-xl max-w-md w-full animate-fade-in text-center space-y-3">
               <WashiTape width={80} height={20} color="#38bdf8" rotation={4} />
@@ -102,9 +102,9 @@ export const Stage0Verification = ({ onComplete }) => {
         </div>
 
         {boxState < 2 && (
-          <div className="font-['Caveat'] text-xl text-[#d97706] font-bold mt-1 flex items-center justify-center gap-2">
+          <div className="font-['Caveat'] text-xl text-[#dc2626] font-bold mt-1 flex items-center justify-center gap-2">
             <RibbonBowSVG size={24} />
-            <span>Click the cake to trigger the birthday blast! 💥🎉</span>
+            <span>Tap the bomb to light the fuse & trigger the boom! 💣🔥</span>
           </div>
         )}
       </PaperScrap>
