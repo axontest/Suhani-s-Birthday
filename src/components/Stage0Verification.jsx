@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { PaperScrap } from './PaperScrap';
 import { CrownSVG, SparkleSVG, SunflowerSVG, HeartSVG, RibbonBowSVG, WashiTape } from './CustomIcons';
-import { ExplosiveBombCake } from './ExplosiveBombCake';
+import { AestheticPastelCake } from './AestheticPastelCake';
 import { soundFx } from '../utils/audioSynth';
 import suhaniPfp from '../assets/suhani_pfp.png';
 
 export const Stage0Verification = ({ onComplete }) => {
   const [boxState, setBoxState] = useState(0);
 
-  const handleBlast = () => {
+  const handleEat = () => {
     setBoxState(2);
   };
 
@@ -46,17 +46,17 @@ export const Stage0Verification = ({ onComplete }) => {
           <SparkleSVG size={14} fill="#d97706" />
         </div>
 
-        {/* Funny & Relatable Description Line */}
+        {/* Funny & Warm 0 Calories Phrasing */}
         <p className="font-['Plus_Jakarta_Sans'] text-sm sm:text-base text-[#44403c] font-semibold mb-3 max-w-md mx-auto leading-relaxed">
           {boxState < 2 
-            ? "WARNING: Birthday Bomb incoming! 💣 Light the fuse below to detonate the ultimate birthday party explosion!"
-            : "BOOM! 💥 SURPRISE! You are officially crowned the Birthday Queen of STUDY WITH ME today! 👑"}
+            ? "Hey Suhani! Go ahead and eat the ENTIRE cake! 🎂 Don't worry, it has 0 calories, 100% Mod immunity, and unlimited happiness guaranteed! Click below to take your first slice!"
+            : "YUMMM! 🍰 SURPRISE! You are officially crowned the Birthday Queen of STUDY WITH ME today! 👑"}
         </p>
 
-        {/* Interactive Explosive Birthday Bomb Cake Container */}
+        {/* Interactive Aesthetic Code Pastel Birthday Cake Container */}
         <div className="my-3 flex flex-col items-center justify-center relative min-h-[250px]">
           {boxState < 2 ? (
-            <ExplosiveBombCake size={210} onBlast={handleBlast} />
+            <AestheticPastelCake size={210} onEat={handleEat} />
           ) : (
             <div className="relative bg-[#fffbeb] border-2 border-[#fcd34d] p-5 rounded-2xl shadow-xl max-w-md w-full animate-fade-in text-center space-y-3">
               <WashiTape width={80} height={20} color="#38bdf8" rotation={4} />
@@ -77,7 +77,7 @@ export const Stage0Verification = ({ onComplete }) => {
                   <span>100% Happiness & Zero Stress Guaranteed!</span>
                 </p>
                 <p className="flex items-center justify-center gap-2">
-                  <span>🎂 Unlimited Cake & Coffee Rights Activated!</span>
+                  <span>🎂 0 Calories Cake Eaten & Unlimited Boba Activated!</span>
                 </p>
                 <p className="flex items-center justify-center gap-2">
                   <HeartSVG size={20} fill="#ef4444" />
@@ -102,9 +102,9 @@ export const Stage0Verification = ({ onComplete }) => {
         </div>
 
         {boxState < 2 && (
-          <div className="font-['Caveat'] text-xl text-[#dc2626] font-bold mt-1 flex items-center justify-center gap-2">
+          <div className="font-['Caveat'] text-xl text-[#ec4899] font-bold mt-1 flex items-center justify-center gap-2">
             <RibbonBowSVG size={24} />
-            <span>Tap the bomb to light the fuse & trigger the boom! 💣🔥</span>
+            <span>Eat the whole cake — 0 calories guaranteed! 🍰✨</span>
           </div>
         )}
       </PaperScrap>
