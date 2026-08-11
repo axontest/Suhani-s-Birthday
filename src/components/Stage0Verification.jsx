@@ -24,7 +24,7 @@ export const Stage0Verification = ({ onComplete }) => {
         <div className="flex flex-col items-center justify-center gap-2 mb-3">
           <div className="relative mb-2">
             <img 
-              src="/suhani_pfp.png" 
+              src="suhani_pfp.png" 
               alt="Suhani PFP" 
               className="w-20 h-20 rounded-full border-4 border-[#f59e0b] shadow-xl object-cover"
             />

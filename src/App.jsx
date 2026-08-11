@@ -51,7 +51,7 @@ export function App() {
         <div className="flex items-center gap-3">
           <div className="relative">
             <img 
-              src="/suhani_pfp.png" 
+              src="suhani_pfp.png" 
               alt="Suhani" 
               className="w-11 h-11 rounded-full border-2 border-[#f59e0b] shadow-md object-cover"
             />

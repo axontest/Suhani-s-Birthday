@@ -16,7 +16,7 @@ export const Stage1SpamDodger = ({ onComplete }) => {
 
     // Load Suhani's PFP image
     const pfpImage = new Image();
-    pfpImage.src = '/suhani_pfp.png';
+    pfpImage.src = 'suhani_pfp.png';
 
     let animationId;
     let playerX = canvas.width / 2;
@@ -207,7 +207,7 @@ export const Stage1SpamDodger = ({ onComplete }) => {
       <PaperScrap showSunflower={true} sunflowerPos="top-left" rotation={1}>
         <div className="flex items-center justify-center gap-3 mb-2">
           <img 
-            src="/suhani_pfp.png" 
+            src="suhani_pfp.png" 
             alt="Suhani PFP" 
             className="w-12 h-12 rounded-full border-2 border-[#f59e0b] shadow-md object-cover"
           />
@@ -244,7 +244,7 @@ export const Stage1SpamDodger = ({ onComplete }) => {
           {gameState === 'won' && (
             <div className="absolute inset-0 bg-[#1c1917]/85 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-white animate-fade-in">
               <img 
-                src="/suhani_pfp.png" 
+                src="suhani_pfp.png" 
                 alt="Suhani PFP" 
                 className="w-20 h-20 rounded-full border-4 border-[#facc15] shadow-2xl mb-2 animate-bounce object-cover"
               />
