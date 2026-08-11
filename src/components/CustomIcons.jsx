@@ -48,6 +48,64 @@ export const SunflowerSVG = ({ className = '', size = 64, style = {} }) => (
   </svg>
 );
 
+// High Quality 3D Glossy Gift Box SVG
+export const GiftBoxSVG = ({ size = 96, className = '' }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" className={`inline-block drop-shadow-xl ${className}`}>
+    <defs>
+      <linearGradient id="boxGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#f59e0b" />
+        <stop offset="100%" stopColor="#d97706" />
+      </linearGradient>
+      <linearGradient id="ribbonGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stopColor="#ef4444" />
+        <stop offset="100%" stopColor="#dc2626" />
+      </linearGradient>
+    </defs>
+    <g>
+      {/* Box Body */}
+      <rect x="18" y="38" width="64" height="50" rx="8" fill="url(#boxGrad)" stroke="#b45309" strokeWidth="3" />
+      <rect x="12" y="28" width="76" height="16" rx="5" fill="#fbbf24" stroke="#d97706" strokeWidth="3" />
+
+      {/* Vertical Ribbon */}
+      <rect x="42" y="38" width="16" height="50" fill="url(#ribbonGrad)" />
+      <rect x="42" y="28" width="16" height="16" fill="url(#ribbonGrad)" />
+
+      {/* Big Ribbon Bow Top */}
+      <path d="M50 28 C35 10 20 25 44 28 Z" fill="#ef4444" />
+      <path d="M50 28 C65 10 80 25 56 28 Z" fill="#ef4444" />
+      <circle cx="50" cy="27" r="6" fill="#f87171" />
+    </g>
+  </svg>
+);
+
+// Ribbon Bow SVG
+export const RibbonBowSVG = ({ size = 48, className = '' }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" className={`inline-block ${className}`}>
+    <g>
+      <path d="M50 50 C25 20 10 40 42 50 Z" fill="#ec4899" />
+      <path d="M50 50 C75 20 90 40 58 50 Z" fill="#ec4899" />
+      <path d="M50 50 C30 80 20 70 42 54 Z" fill="#db2777" />
+      <path d="M50 50 C70 80 80 70 58 54 Z" fill="#db2777" />
+      <circle cx="50" cy="50" r="8" fill="#f472b6" />
+    </g>
+  </svg>
+);
+
+// Party Popper SVG
+export const PartyPopperSVG = ({ size = 32, className = '' }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" className={`inline-block ${className}`}>
+    <g>
+      <path d="M20 80 L35 40 L60 65 Z" fill="#3b82f6" />
+      <path d="M35 40 L45 25 L65 45 L60 65 Z" fill="#f59e0b" />
+      <circle cx="65" cy="25" r="4" fill="#ec4899" />
+      <circle cx="78" cy="35" r="3" fill="#10b981" />
+      <circle cx="55" cy="15" r="3.5" fill="#a855f7" />
+      <path d="M60 20 Q 75 10 85 20" stroke="#ef4444" strokeWidth="3" fill="none" />
+      <path d="M45 10 Q 55 0 65 5" stroke="#3b82f6" strokeWidth="3" fill="none" />
+    </g>
+  </svg>
+);
+
 // High Quality 3D Cake SVG Box Designs
 export const Deluxe3DCakeSVG = ({ type = 'strawberry', size = 80 }) => {
   const themes = {
@@ -69,26 +127,18 @@ export const Deluxe3DCakeSVG = ({ type = 'strawberry', size = 80 }) => {
         </linearGradient>
       </defs>
       <g>
-        {/* Base shadow */}
         <ellipse cx="50" cy="88" rx="40" ry="8" fill="rgba(0,0,0,0.15)" />
-        
-        {/* Plate */}
         <ellipse cx="50" cy="85" rx="42" ry="7" fill="#ffffff" stroke="#cbd5e1" strokeWidth="2" />
-        
-        {/* Cake Bottom Layer */}
         <rect x="18" y="52" width="64" height="30" rx="6" fill={`url(#cakeGrad-${type})`} />
         
-        {/* Frosting Drips */}
         <path 
           d="M18 52 C24 64 30 52 36 62 C42 52 48 64 54 52 C60 62 66 52 72 64 C78 52 82 52 82 52 L82 42 L18 42 Z" 
           fill={theme.drip} 
         />
         
-        {/* Top Cake Layer */}
         <rect x="26" y="32" width="48" height="22" rx="4" fill={theme.top} />
         <ellipse cx="50" cy="32" rx="24" ry="6" fill={theme.drip} />
 
-        {/* Candles with glowing flames */}
         <rect x="38" y="16" width="4" height="16" rx="2" fill="#38bdf8" />
         <ellipse cx="40" cy="11" rx="3" ry="5" fill="#fbbf24" className="animate-pulse" />
 
@@ -98,7 +148,6 @@ export const Deluxe3DCakeSVG = ({ type = 'strawberry', size = 80 }) => {
         <rect x="58" y="16" width="4" height="16" rx="2" fill="#a855f7" />
         <ellipse cx="60" cy="11" rx="3" ry="5" fill="#fbbf24" className="animate-pulse" />
 
-        {/* Decorative Berries/Sprinkles */}
         <circle cx="30" cy="46" r="2.5" fill={theme.accent} />
         <circle cx="50" cy="48" r="3" fill={theme.accent} />
         <circle cx="70" cy="46" r="2.5" fill={theme.accent} />
@@ -171,7 +220,7 @@ export const ModShieldSVG = ({ size = 48, className = '' }) => (
 );
 
 export const CrownSVG = ({ size = 40, className = '' }) => (
-  <svg width={size} height={size} viewBox="0 0 100 100" className={className}>
+  <svg width={size} height={size} viewBox="0 0 100 100" className={`inline-block ${className}`}>
     <path d="M15 75 L20 30 L40 50 L50 20 L60 50 L80 30 L85 75 Z" fill="#ffb703" stroke="#d48806" strokeWidth="3" />
     <rect x="15" y="75" width="70" height="10" rx="3" fill="#fb8500" />
     <circle cx="20" cy="26" r="5" fill="#e63946" />
@@ -196,14 +245,14 @@ export const WashiTape = ({ width = 120, height = 30, color = "#f7d6c8", rotatio
   />
 );
 
-export const SparkleSVG = ({ size = 24, fill = "#ffb703" }) => (
-  <svg width={size} height={size} viewBox="0 0 100 100">
+export const SparkleSVG = ({ size = 24, fill = "#ffb703", className = '' }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" className={`inline-block ${className}`}>
     <path d="M50 0 C50 35 65 50 100 50 C65 50 50 65 50 100 C50 65 35 50 0 50 C35 50 50 35 50 0 Z" fill={fill} />
   </svg>
 );
 
-export const CoffeeSVG = ({ size = 44 }) => (
-  <svg width={size} height={size} viewBox="0 0 100 100">
+export const CoffeeSVG = ({ size = 44, className = '' }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" className={`inline-block ${className}`}>
     <rect x="25" y="35" width="45" height="48" rx="8" fill="#e76f51" />
     <path d="M70 45 C82 45 82 65 70 65" fill="none" stroke="#e76f51" strokeWidth="8" strokeLinecap="round" />
     <rect x="20" y="30" width="55" height="8" rx="4" fill="#f4a261" />
@@ -213,8 +262,8 @@ export const CoffeeSVG = ({ size = 44 }) => (
   </svg>
 );
 
-export const HeartSVG = ({ size = 24, fill = "#e63946" }) => (
-  <svg width={size} height={size} viewBox="0 0 100 100">
+export const HeartSVG = ({ size = 24, fill = "#e63946", className = '' }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" className={`inline-block ${className}`}>
     <path d="M50 88 C20 65 5 45 5 28 C5 15 15 5 28 5 C38 5 45 12 50 20 C55 12 62 5 72 5 C85 5 95 15 95 28 C95 45 80 65 50 88 Z" fill={fill} />
   </svg>
 );

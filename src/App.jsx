@@ -4,6 +4,7 @@ import { Stage0Verification } from './components/Stage0Verification';
 import { Stage1SpamDodger } from './components/Stage1SpamDodger';
 import { Stage2ModQuiz } from './components/Stage2ModQuiz';
 import { Stage3Celebration } from './components/Stage3Celebration';
+import { CrownSVG, SunflowerSVG, SparkleSVG } from './components/CustomIcons';
 import suhaniPfp from './assets/suhani_pfp.png';
 
 export function App() {
@@ -56,14 +57,17 @@ export function App() {
               alt="Suhani" 
               className="w-11 h-11 rounded-full border-2 border-[#f59e0b] shadow-md object-cover"
             />
-            <span className="absolute -top-2 -right-1 text-base">👑</span>
+            <span className="absolute -top-2 -right-1">
+              <CrownSVG size={20} />
+            </span>
           </div>
           <div>
             <h1 className="font-['Outfit'] font-black text-lg sm:text-xl text-[#1c1917] tracking-tight">
               SUHANI'S BIRTHDAY
             </h1>
-            <span className="text-xs font-bold text-[#0284c7] uppercase">
-              STUDY WITH ME EDITION 🌻
+            <span className="text-xs font-bold text-[#0284c7] uppercase flex items-center gap-1">
+              <span>STUDY WITH ME EDITION</span>
+              <SunflowerSVG size={14} />
             </span>
           </div>
         </div>
@@ -71,15 +75,15 @@ export function App() {
         {/* Stage Navigator pills */}
         <div className="flex items-center gap-1 sm:gap-2 bg-white/70 backdrop-blur-md p-1.5 rounded-full border border-white/50 shadow-sm">
           {[
-            { id: 0, label: "Gift Box 🎁" },
-            { id: 1, label: "Treat Run 🌻" },
-            { id: 2, label: "Quiz ✨" },
-            { id: 3, label: "Party 🎉" }
+            { id: 0, label: "Gift Box" },
+            { id: 1, label: "Treat Run" },
+            { id: 2, label: "Quiz" },
+            { id: 3, label: "Party" }
           ].map(s => (
             <button
               key={s.id}
               onClick={() => setCurrentStage(s.id)}
-              className={`px-3 py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${
+              className={`px-3.5 py-1 rounded-full text-xs font-extrabold transition-all cursor-pointer ${
                 currentStage === s.id
                   ? 'bg-[#1c1917] text-[#ffffff] shadow-md'
                   : 'text-[#44403c] hover:bg-white/80'
@@ -108,8 +112,10 @@ export function App() {
       </main>
 
       {/* Footer */}
-      <footer className="relative z-10 text-center py-6 text-xs text-[#0369a1] font-bold">
-        Made with ❤️ for Suhani by the STUDY WITH ME Team • 2026
+      <footer className="relative z-10 text-center py-6 text-xs text-[#0369a1] font-bold flex items-center justify-center gap-1">
+        <span>Made with</span>
+        <span className="text-[#ef4444]">❤️</span>
+        <span>for Suhani by the STUDY WITH ME Team • 2026</span>
       </footer>
     </div>
   );
