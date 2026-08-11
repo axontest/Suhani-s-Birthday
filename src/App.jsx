@@ -5,6 +5,8 @@ import { Stage1SpamDodger } from './components/Stage1SpamDodger';
 import { Stage2ModQuiz } from './components/Stage2ModQuiz';
 import { Stage3Celebration } from './components/Stage3Celebration';
 
+const suhaniPfp = `${import.meta.env.BASE_URL}suhani_pfp.png`;
+
 export function App() {
   const [currentStage, setCurrentStage] = useState(0);
 
@@ -51,7 +53,7 @@ export function App() {
         <div className="flex items-center gap-3">
           <div className="relative">
             <img 
-              src="suhani_pfp.png" 
+              src={suhaniPfp} 
               alt="Suhani" 
               className="w-11 h-11 rounded-full border-2 border-[#f59e0b] shadow-md object-cover"
             />
@@ -80,7 +82,7 @@ export function App() {
               onClick={() => setCurrentStage(s.id)}
               className={`px-3 py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${
                 currentStage === s.id
-                  ? 'bg-[#1c1917] text-white shadow-md'
+                  ? 'bg-[#1c1917] text-[#ffffff] shadow-md'
                   : 'text-[#44403c] hover:bg-white/80'
               }`}
             >

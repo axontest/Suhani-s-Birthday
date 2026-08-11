@@ -4,6 +4,8 @@ import { PaperScrap } from './PaperScrap';
 import { CrownSVG, SparkleSVG, SunflowerSVG, HeartSVG } from './CustomIcons';
 import { soundFx } from '../utils/audioSynth';
 
+const suhaniPfp = `${import.meta.env.BASE_URL}suhani_pfp.png`;
+
 export const Stage0Verification = ({ onComplete }) => {
   const [boxState, setBoxState] = useState(0);
 
@@ -24,7 +26,7 @@ export const Stage0Verification = ({ onComplete }) => {
         <div className="flex flex-col items-center justify-center gap-2 mb-3">
           <div className="relative mb-2">
             <img 
-              src="suhani_pfp.png" 
+              src={suhaniPfp} 
               alt="Suhani PFP" 
               className="w-20 h-20 rounded-full border-4 border-[#f59e0b] shadow-xl object-cover"
             />
