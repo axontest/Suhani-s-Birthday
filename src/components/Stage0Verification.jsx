@@ -2,27 +2,15 @@ import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { PaperScrap } from './PaperScrap';
 import { CrownSVG, SparkleSVG, SunflowerSVG, HeartSVG, RibbonBowSVG, WashiTape } from './CustomIcons';
-import { AestheticCake } from './AestheticCake';
+import { InteractiveCodeCake } from './InteractiveCodeCake';
 import { soundFx } from '../utils/audioSynth';
 import suhaniPfp from '../assets/suhani_pfp.png';
 
 export const Stage0Verification = ({ onComplete }) => {
   const [boxState, setBoxState] = useState(0);
 
-  const handleUnwrap = () => {
-    if (boxState === 0) {
-      soundFx.playSuccess();
-      setBoxState(1);
-    } else if (boxState === 1) {
-      soundFx.playFanfare();
-      confetti({ 
-        particleCount: 240, 
-        spread: 130, 
-        origin: { y: 0.5 },
-        colors: ['#ffb703', '#ec4899', '#38bdf8', '#10b981', '#a855f7']
-      });
-      setBoxState(2);
-    }
+  const handleBlast = () => {
+    setBoxState(2);
   };
 
   return (
@@ -60,27 +48,15 @@ export const Stage0Verification = ({ onComplete }) => {
 
         {/* Funny & Relatable Description Line */}
         <p className="font-['Plus_Jakarta_Sans'] text-sm sm:text-base text-[#44403c] font-semibold mb-3 max-w-md mx-auto leading-relaxed">
-          {boxState === 0 && "Warning: This cake contains 0 calories, 100% Mod immunity, and unlimited vibes from your STUDY WITH ME family! Tap below to blow out your candles! 🎂"}
-          {boxState === 1 && "Candles blown out! Tap once more to open your birthday messages & surprise scroll! 🎉"}
-          {boxState === 2 && "SURPRISE! You are officially crowned the Birthday Queen of STUDY WITH ME today! 👑"}
+          {boxState < 2 
+            ? "Warning: This cake contains 0 calories, 100% Mod immunity, and unlimited vibes from your STUDY WITH ME family! Tap the cake below to BLAST it!"
+            : "BOOM! 💥 SURPRISE! You are officially crowned the Birthday Queen of STUDY WITH ME today! 👑"}
         </p>
 
-        {/* Interactive 3D Royal Butterfly Cake Container */}
-        <div className="my-3 flex flex-col items-center justify-center relative min-h-[220px]">
+        {/* Interactive Pure Code Cake & Explosive Blast Container */}
+        <div className="my-3 flex flex-col items-center justify-center relative min-h-[240px]">
           {boxState < 2 ? (
-            <div className="flex flex-col items-center gap-3">
-              {/* Static Interactive Aesthetic Royal Cake */}
-              <AestheticCake size={200} onClick={handleUnwrap} />
-
-              {/* Action Button */}
-              <button
-                onClick={handleUnwrap}
-                className="bg-[#1c1917] hover:bg-[#d97706] text-white px-6 py-2.5 rounded-full font-['Outfit'] font-black text-xs uppercase tracking-wider flex items-center gap-2 shadow-xl transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
-              >
-                <span>{boxState === 0 ? "TAP TO BLOW CANDLES 🎂" : "OPEN BIRTHDAY MESSAGES ✨"}</span>
-                <SparkleSVG size={16} fill="#facc15" />
-              </button>
-            </div>
+            <InteractiveCodeCake size={210} onBlast={handleBlast} />
           ) : (
             <div className="relative bg-[#fffbeb] border-2 border-[#fcd34d] p-5 rounded-2xl shadow-xl max-w-md w-full animate-fade-in text-center space-y-3">
               <WashiTape width={80} height={20} color="#38bdf8" rotation={4} />
@@ -128,7 +104,7 @@ export const Stage0Verification = ({ onComplete }) => {
         {boxState < 2 && (
           <div className="font-['Caveat'] text-xl text-[#d97706] font-bold mt-1 flex items-center justify-center gap-2">
             <RibbonBowSVG size={24} />
-            <span>{boxState === 0 ? "Golden candles lit ✨" : "Make your birthday wish! 🎉"}</span>
+            <span>Click the cake to trigger the birthday blast! 💥🎉</span>
           </div>
         )}
       </PaperScrap>
