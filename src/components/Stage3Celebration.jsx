@@ -6,23 +6,7 @@ import { YouTubeAudioPlayer } from './YouTubeAudioPlayer';
 export const Stage3Celebration = ({ fireConfetti }) => {
   const [candlesLit, setCandlesLit] = useState(true);
   const [messages, setMessages] = useState(() => {
-    const saved = localStorage.getItem('suhani_bday_messages');
-    if (saved) {
-      try { 
-        const parsed = JSON.parse(saved); 
-        if (!parsed.some(m => m.author === 'Basmallah')) {
-          parsed.push({
-            id: 3,
-            author: "Basmallah",
-            role: "STUDY WITH ME Teammate",
-            color: "#ec4899",
-            text: "Happppy birthdayyyy chatpati Enjoy ur day Hopefully it’s a new year filled with so many wonderful memories amazing opportunities and u get to achieve whatever u want 💗"
-          });
-        }
-        return parsed;
-      } catch(e){}
-    }
-    return [
+    const defaultMessages = [
       {
         id: 1,
         author: "Nixie",
@@ -35,7 +19,7 @@ export const Stage3Celebration = ({ fireConfetti }) => {
         author: "Rajit",
         role: "STUDY WITH ME Founder",
         color: "#3b82f6",
-        text: "Happy Birthday Suhani! 🎉 Thank you so much for helping this community so much. You are an absolute legendary moderator, and your dedication and warmth mean the world to us. Enjoy your special day to the fullest! ✨"
+        text: "Happy Birthday Suhani! 🎉 Thank you so much for helping this community so much. You are an absolute legendary moderator, and your dedication and warmth mean so much to all of us. Enjoy your special day to the fullest! ✨"
       },
       {
         id: 3,
@@ -45,6 +29,16 @@ export const Stage3Celebration = ({ fireConfetti }) => {
         text: "Happppy birthdayyyy chatpati Enjoy ur day Hopefully it’s a new year filled with so many wonderful memories amazing opportunities and u get to achieve whatever u want 💗"
       }
     ];
+
+    const saved = localStorage.getItem('suhani_bday_messages');
+    if (saved) {
+      try { 
+        const parsed = JSON.parse(saved); 
+        // Update Rajit's message in saved state if present
+        return parsed.map(m => m.author === 'Rajit' ? { ...m, text: "Happy Birthday Suhani! 🎉 Thank you so much for helping this community so much. You are an absolute legendary moderator, and your dedication and warmth mean so much to all of us. Enjoy your special day to the fullest! ✨" } : m);
+      } catch(e){}
+    }
+    return defaultMessages;
   });
 
   const [showAddModal, setShowAddModal] = useState(false);
