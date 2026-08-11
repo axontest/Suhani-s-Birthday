@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { PaperScrap } from './PaperScrap';
-import { CrownSVG, SparkleSVG, SunflowerSVG, HeartSVG, GiftBoxSVG, RibbonBowSVG, WashiTape } from './CustomIcons';
+import { CrownSVG, SparkleSVG, SunflowerSVG, HeartSVG, RibbonBowSVG, WashiTape } from './CustomIcons';
+import { TransparentCat } from './TransparentCat';
 import { soundFx } from '../utils/audioSynth';
 import suhaniPfp from '../assets/suhani_pfp.png';
 
@@ -15,8 +16,8 @@ export const Stage0Verification = ({ onComplete }) => {
     } else if (boxState === 1) {
       soundFx.playFanfare();
       confetti({ 
-        particleCount: 220, 
-        spread: 120, 
+        particleCount: 240, 
+        spread: 130, 
         origin: { y: 0.5 },
         colors: ['#ffb703', '#ec4899', '#38bdf8', '#10b981', '#a855f7']
       });
@@ -25,7 +26,7 @@ export const Stage0Verification = ({ onComplete }) => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-8 text-center animate-fade-in relative">
+    <div className="max-w-2xl mx-auto px-4 py-6 text-center animate-fade-in relative">
       {/* Aesthetic Paper Scrap Container with Sunflowers & Washi Tapes */}
       <PaperScrap showSunflower={true} sunflowerPos="top-right" rotation={-1} className="relative">
         <WashiTape width={110} height={28} color="#f472b6" rotation={-5} />
@@ -51,41 +52,36 @@ export const Stage0Verification = ({ onComplete }) => {
         </div>
 
         {/* STUDY WITH ME Badge */}
-        <div className="inline-flex items-center gap-2 bg-[#fffbeb] text-[#b45309] font-['Plus_Jakarta_Sans'] font-extrabold px-6 py-2.5 rounded-full text-xs sm:text-sm mb-6 border-2 border-[#fde68a] shadow-sm">
+        <div className="inline-flex items-center gap-2 bg-[#fffbeb] text-[#b45309] font-['Plus_Jakarta_Sans'] font-extrabold px-6 py-2 rounded-full text-xs sm:text-sm mb-4 border-2 border-[#fde68a] shadow-sm">
           <SparkleSVG size={18} fill="#d97706" />
-          <span className="uppercase tracking-wide">YOUR STUDY WITH ME BIRTHDAY GIFT BOX</span>
+          <span className="uppercase tracking-wide">YOUR STUDY WITH ME BIRTHDAY SURPRISE</span>
           <SparkleSVG size={18} fill="#d97706" />
         </div>
 
-        <p className="font-['Plus_Jakarta_Sans'] text-base text-[#44403c] font-semibold mb-6 max-w-md mx-auto leading-relaxed">
-          {boxState === 0 && "Your STUDY WITH ME team packed a special interactive birthday surprise box just for you! Click the gift box below to unwrap your surprise!"}
-          {boxState === 1 && "Ribbon untied! Click once more to lift the lid and reveal your birthday royal scroll!"}
+        <p className="font-['Plus_Jakarta_Sans'] text-base text-[#44403c] font-semibold mb-4 max-w-md mx-auto leading-relaxed">
+          {boxState === 0 && "Look who brought your birthday cake & balloons! Click the floating birthday kitten below to unwrap your surprise!"}
+          {boxState === 1 && "Balloons untied! Click once more to reveal your birthday royal scroll!"}
           {boxState === 2 && "SURPRISE! You are officially crowned the Birthday Queen of STUDY WITH ME today! 👑"}
         </p>
 
-        {/* Interactive 3D Gift Box Unboxing Container */}
-        <div className="my-6 flex flex-col items-center justify-center min-h-[250px]">
+        {/* Floating Transparent Birthday Kitten with Blue Cake & Balloons (Animates Bottom to Top!) */}
+        <div className="my-4 flex flex-col items-center justify-center min-h-[300px] relative">
           {boxState < 2 ? (
-            <button
-              onClick={handleUnwrap}
-              className="group relative cursor-pointer focus:outline-none transition-transform hover:scale-105 active:scale-95"
-            >
-              <div className="absolute -inset-6 bg-gradient-to-r from-amber-300/50 via-pink-400/40 to-sky-300/50 rounded-3xl blur-2xl group-hover:opacity-100 transition-all opacity-80" />
-
-              <div className="relative bg-[#fffbeb] border-4 border-[#f59e0b] p-8 sm:p-10 rounded-3xl shadow-2xl flex flex-col items-center gap-4">
-                <div className="relative">
-                  <GiftBoxSVG size={120} className="animate-bounce" />
-                  <div className="absolute -top-3 -right-3">
-                    <SparkleSVG size={32} fill="#ec4899" className="animate-spin" />
-                  </div>
-                </div>
-
-                <div className="bg-[#1c1917] text-white px-6 py-2.5 rounded-full font-['Outfit'] font-black text-sm uppercase tracking-wider flex items-center gap-2 shadow-lg group-hover:bg-[#d97706] transition-colors">
-                  <span>{boxState === 0 ? "CLICK TO UNWRAP GIFT 🎁" : "CLICK TO OPEN BOX ✨"}</span>
-                  <SparkleSVG size={18} fill="#facc15" />
-                </div>
+            <div className="flex flex-col items-center gap-3">
+              {/* Floating Kitten with transparent background floating bottom to top */}
+              <div className="animate-float-up">
+                <TransparentCat size={270} onClick={handleUnwrap} />
               </div>
-            </button>
+
+              {/* Click button pill */}
+              <button
+                onClick={handleUnwrap}
+                className="bg-[#1c1917] hover:bg-[#d97706] text-white px-7 py-3 rounded-full font-['Outfit'] font-black text-sm uppercase tracking-wider flex items-center gap-2 shadow-2xl transition-all transform hover:scale-105 active:scale-95 cursor-pointer mt-2"
+              >
+                <span>{boxState === 0 ? "CLICK TO UNWRAP SURPRISE 🎁" : "CLICK TO OPEN SURPRISE ✨"}</span>
+                <SparkleSVG size={18} fill="#facc15" />
+              </button>
+            </div>
           ) : (
             <div className="relative bg-[#fffbeb] border-3 border-[#fcd34d] p-6 sm:p-8 rounded-3xl shadow-2xl max-w-md w-full animate-fade-in text-center space-y-5">
               <WashiTape width={90} height={24} color="#38bdf8" rotation={4} />
@@ -131,9 +127,9 @@ export const Stage0Verification = ({ onComplete }) => {
         </div>
 
         {boxState < 2 && (
-          <div className="font-['Caveat'] text-2xl text-[#d97706] font-bold mt-4 flex items-center justify-center gap-2">
+          <div className="font-['Caveat'] text-2xl text-[#d97706] font-bold mt-2 flex items-center justify-center gap-2">
             <RibbonBowSVG size={32} />
-            <span>{boxState === 0 ? "Golden ribbon tied 🎀" : "Ready to reveal your birthday surprise! ✨"}</span>
+            <span>{boxState === 0 ? "Balloons floating gently ✨" : "Ready to reveal your birthday scroll! 🎉"}</span>
           </div>
         )}
       </PaperScrap>

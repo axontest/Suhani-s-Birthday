@@ -11,6 +11,18 @@
     50% { transform: scale(1.05) rotate(3deg); }
   }
 
+  @keyframes floatUp {
+    0% {
+      transform: translateY(35px) scale(0.97);
+    }
+    50% {
+      transform: translateY(-25px) scale(1.03);
+    }
+    100% {
+      transform: translateY(35px) scale(0.97);
+    }
+  }
+
   @keyframes cake3dZoom {
     0% {
       transform: perspective(600px) translateZ(-400px) rotateX(20deg) scale(0.2);
@@ -32,6 +44,10 @@
 
   .animate-pulse-slow {
     animation: pulseSlow 4s ease-in-out infinite;
+  }
+
+  .animate-float-up {
+    animation: floatUp 3.6s ease-in-out infinite;
   }
 
   .animate-cake-3d-zoom {
