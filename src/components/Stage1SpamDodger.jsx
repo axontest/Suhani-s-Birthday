@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PaperScrap } from './PaperScrap';
 import { soundFx } from '../utils/audioSynth';
-
-const suhaniPfp = `${import.meta.env.BASE_URL}suhani_pfp.png`;
+import suhaniPfp from '../assets/suhani_pfp.png';
 
 export const Stage1SpamDodger = ({ onComplete }) => {
   const canvasRef = useRef(null);
@@ -16,7 +15,7 @@ export const Stage1SpamDodger = ({ onComplete }) => {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
 
-    // Load Suhani's PFP image
+    // Load Suhani's PFP image from module import
     const pfpImage = new Image();
     pfpImage.src = suhaniPfp;
 

@@ -3,8 +3,7 @@ import confetti from 'canvas-confetti';
 import { PaperScrap } from './PaperScrap';
 import { CrownSVG, SparkleSVG, SunflowerSVG, HeartSVG } from './CustomIcons';
 import { soundFx } from '../utils/audioSynth';
-
-const suhaniPfp = `${import.meta.env.BASE_URL}suhani_pfp.png`;
+import suhaniPfp from '../assets/suhani_pfp.png';
 
 export const Stage0Verification = ({ onComplete }) => {
   const [boxState, setBoxState] = useState(0);

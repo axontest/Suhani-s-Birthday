@@ -4,8 +4,7 @@ import { Stage0Verification } from './components/Stage0Verification';
 import { Stage1SpamDodger } from './components/Stage1SpamDodger';
 import { Stage2ModQuiz } from './components/Stage2ModQuiz';
 import { Stage3Celebration } from './components/Stage3Celebration';
-
-const suhaniPfp = `${import.meta.env.BASE_URL}suhani_pfp.png`;
+import suhaniPfp from './assets/suhani_pfp.png';
 
 export function App() {
   const [currentStage, setCurrentStage] = useState(0);
