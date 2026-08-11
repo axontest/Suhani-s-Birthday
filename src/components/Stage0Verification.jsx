@@ -54,31 +54,30 @@ export const Stage0Verification = ({ onComplete }) => {
         {/* STUDY WITH ME Badge */}
         <div className="inline-flex items-center gap-2 bg-[#fffbeb] text-[#b45309] font-['Plus_Jakarta_Sans'] font-extrabold px-5 py-1.5 rounded-full text-xs mb-3 border border-[#fde68a] shadow-xs">
           <SparkleSVG size={14} fill="#d97706" />
-          <span className="uppercase tracking-wide">STUDY WITH ME BIRTHDAY CAKE</span>
+          <span className="uppercase tracking-wide">STUDY WITH ME SPECIAL CELEBRATION</span>
           <SparkleSVG size={14} fill="#d97706" />
         </div>
 
-        <p className="font-['Plus_Jakarta_Sans'] text-sm sm:text-base text-[#44403c] font-semibold mb-3 max-w-md mx-auto leading-snug">
-          {boxState === 0 && "Your STUDY WITH ME team prepared a royal 3-tiered birthday cake for you! Click the cake to make a wish!"}
-          {boxState === 1 && "Candles lit! Click once more to blow out candles and open your birthday scroll!"}
+        {/* Funny & Relatable Description Line */}
+        <p className="font-['Plus_Jakarta_Sans'] text-sm sm:text-base text-[#44403c] font-semibold mb-3 max-w-md mx-auto leading-relaxed">
+          {boxState === 0 && "Warning: This cake contains 0 calories, 100% Mod immunity, and unlimited vibes from your STUDY WITH ME family! Tap below to blow out your candles! 🎂"}
+          {boxState === 1 && "Candles blown out! Tap once more to open your birthday messages & surprise scroll! 🎉"}
           {boxState === 2 && "SURPRISE! You are officially crowned the Birthday Queen of STUDY WITH ME today! 👑"}
         </p>
 
-        {/* Floating 3D Royal Butterfly Cake Container (Compact Height) */}
+        {/* Interactive 3D Royal Butterfly Cake Container */}
         <div className="my-3 flex flex-col items-center justify-center relative min-h-[220px]">
           {boxState < 2 ? (
             <div className="flex flex-col items-center gap-3">
-              {/* Floating Aesthetic Royal Cake */}
-              <div className="animate-float-up">
-                <AestheticCake size={200} onClick={handleUnwrap} />
-              </div>
+              {/* Static Interactive Aesthetic Royal Cake */}
+              <AestheticCake size={200} onClick={handleUnwrap} />
 
               {/* Action Button */}
               <button
                 onClick={handleUnwrap}
                 className="bg-[#1c1917] hover:bg-[#d97706] text-white px-6 py-2.5 rounded-full font-['Outfit'] font-black text-xs uppercase tracking-wider flex items-center gap-2 shadow-xl transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
               >
-                <span>{boxState === 0 ? "CLICK TO MAKE A WISH 🎂" : "CLICK TO BLOW CANDLES ✨"}</span>
+                <span>{boxState === 0 ? "TAP TO BLOW CANDLES 🎂" : "OPEN BIRTHDAY MESSAGES ✨"}</span>
                 <SparkleSVG size={16} fill="#facc15" />
               </button>
             </div>
@@ -129,7 +128,7 @@ export const Stage0Verification = ({ onComplete }) => {
         {boxState < 2 && (
           <div className="font-['Caveat'] text-xl text-[#d97706] font-bold mt-1 flex items-center justify-center gap-2">
             <RibbonBowSVG size={24} />
-            <span>{boxState === 0 ? "Golden candles lit ✨" : "Make a wish! 🎉"}</span>
+            <span>{boxState === 0 ? "Golden candles lit ✨" : "Make your birthday wish! 🎉"}</span>
           </div>
         )}
       </PaperScrap>
